@@ -1,2 +1,21 @@
 # Zineify
-Tools for DIY publishing
+Tools for DIY publishing.
+
+I wanted to publish a booklet as a zine with 8-up imposition. I had created a pdf with all my content, all I needed was to shrink, shift, and rotate the pages onto a single sheet. I didn't find anything that met my needs, so I created a script that would do it for me.
+
+## Features
+
+### 8-up 
+
+Start with a pdf that has eight 2.75" x 4.25" pages. Run `impose8up.sh` to produce a pdf that can be printed on a single letter-sized page, then cut and folded into a self-contained zine.
+
+## Requirements
+
+Currently this project is Mac-centric. It can most likely be easily adapted to any linux type system that has good tools for the postscript ecosystem.
+
+### Getting started
+
+The scripts in this repository depend on some software packages that you'll need to install. By far the easiest way to manage them is through (Homebrew)[https://brew.sh]. If you haven't installed Homebrew yet, do so before using this package.
+
+To install all required packages, run `./pkg_install.sh`.
+
