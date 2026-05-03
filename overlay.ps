@@ -1,0 +1,58 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 0 0 792 612
+%%EndComments
+
+/vertcenter 308 def
+/horizqone 198 def
+/horizcenter 395 def
+/horizqtwo 593 def
+
+% /xcutoffset 130 def
+/xcutoffset 327 def
+/ycutoffset -92 def
+
+initclip
+% new folds
+% Vertical fold lines
+[8 4] 0 setdash
+newpath horizqone 0 moveto horizqone vertcenter lineto stroke
+[1 4] 0 setdash
+newpath horizqone vertcenter moveto horizqone 800 lineto stroke
+newpath horizcenter 0 moveto horizcenter 800 lineto stroke
+[8 4] 0 setdash
+newpath horizqtwo 0 moveto horizqtwo 800 lineto stroke
+
+% Horizontal fold line
+[1 4] 0 setdash
+newpath 0 vertcenter moveto horizqone vertcenter lineto stroke
+newpath horizqtwo vertcenter moveto 999 vertcenter lineto stroke
+[] 0 setdash
+newpath horizqone vertcenter moveto horizqtwo vertcenter lineto stroke
+
+
+% -- Scissors label (text placeholder) --
+/Helvetica findfont 10 scalefont setfont
+0 setgray
+% 85 398 moveto
+newpath 85 xcutoffset add 407 ycutoffset add 4 0 360 arc stroke
+newpath 85 xcutoffset add 407 ycutoffset add 3 0 360 arc stroke
+newpath 93 xcutoffset add 415 ycutoffset add 4 0 360 arc stroke
+newpath 93 xcutoffset add 415 ycutoffset add 3 0 360 arc stroke
+
+% newpath 88 xcutoffset add 409 ycutoffset add moveto 111 xcutoffset add 402 ycutoffset add lineto stroke
+newpath 87 xcutoffset add 405 ycutoffset add moveto 111 xcutoffset add 402 ycutoffset add lineto stroke
+
+% newpath 91 xcutoffset add 411 ycutoffset add moveto 96 xcutoffset add 400 ycutoffset add lineto stroke
+newpath 95 xcutoffset add 413 ycutoffset add moveto 99 xcutoffset add 400 ycutoffset add lineto stroke
+% (cut here               cut here              cut here               cut here    cut    cut) show
+newpath 88 xcutoffset add 408 ycutoffset add
+moveto 100 xcutoffset add 406 ycutoffset add
+100 xcutoffset add 406 ycutoffset add
+111 xcutoffset add 402 ycutoffset add curveto stroke
+
+newpath 92 xcutoffset add 411 ycutoffset add
+moveto 93 xcutoffset add 407 ycutoffset add
+93 xcutoffset add 404 ycutoffset add
+96 xcutoffset add 400 ycutoffset add curveto stroke
+showpage
+%%EOF
