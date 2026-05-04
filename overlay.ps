@@ -2,57 +2,65 @@
 %%BoundingBox: 0 0 792 612
 %%EndComments
 
-/vertcenter 308 def
-/horizqone 198 def
-/horizcenter 395 def
-/horizqtwo 593 def
+% Define constants that need to be consistent throughout
+% Defined in landscape, so y is the narrow direction
 
-% /xcutoffset 130 def
-/xcutoffset 327 def
-/ycutoffset -92 def
+% Half-way mark for y
+/ycenter 308 def
+
+% Quartiles for x
+/xqone 198 def
+/xcenter 395 def
+/xqtwo 593 def
+
+% Offset for the scissors indicator
+/xscissoroffset 327 def
+/yscissoroffset -92 def
 
 initclip
-% new folds
+% [8 4] 0 setdash = dashed line for valley folds
+% [1 4] 0 setdash = dotted line for mountain folds
+% [] 0 setdash = solid line for cut
+
 % Vertical fold lines
 [8 4] 0 setdash
-newpath horizqone 0 moveto horizqone vertcenter lineto stroke
+newpath xqone 0 moveto xqone ycenter lineto stroke
 [1 4] 0 setdash
-newpath horizqone vertcenter moveto horizqone 800 lineto stroke
-newpath horizcenter 0 moveto horizcenter 800 lineto stroke
+newpath xqone ycenter moveto xqone 800 lineto stroke
+newpath xcenter 0 moveto xcenter 800 lineto stroke
 [8 4] 0 setdash
-newpath horizqtwo 0 moveto horizqtwo 800 lineto stroke
+newpath xqtwo 0 moveto xqtwo 800 lineto stroke
 
 % Horizontal fold line
 [1 4] 0 setdash
-newpath 0 vertcenter moveto horizqone vertcenter lineto stroke
-newpath horizqtwo vertcenter moveto 999 vertcenter lineto stroke
+newpath 0 ycenter moveto xqone ycenter lineto stroke
+newpath xqtwo ycenter moveto 999 ycenter lineto stroke
+% Solid line to indicate cut
 [] 0 setdash
-newpath horizqone vertcenter moveto horizqtwo vertcenter lineto stroke
+newpath xqone ycenter moveto xqtwo ycenter lineto stroke
 
 
 % -- Scissors label (text placeholder) --
-/Helvetica findfont 10 scalefont setfont
 0 setgray
-% 85 398 moveto
-newpath 85 xcutoffset add 407 ycutoffset add 4 0 360 arc stroke
-newpath 85 xcutoffset add 407 ycutoffset add 3 0 360 arc stroke
-newpath 93 xcutoffset add 415 ycutoffset add 4 0 360 arc stroke
-newpath 93 xcutoffset add 415 ycutoffset add 3 0 360 arc stroke
+% Handle of scissors is made by two pairs of concentric circles
+newpath 85 xscissoroffset add 407 yscissoroffset add 4 0 360 arc stroke
+newpath 85 xscissoroffset add 407 yscissoroffset add 3 0 360 arc stroke
+newpath 93 xscissoroffset add 415 yscissoroffset add 4 0 360 arc stroke
+newpath 93 xscissoroffset add 415 yscissoroffset add 3 0 360 arc stroke
 
-% newpath 88 xcutoffset add 409 ycutoffset add moveto 111 xcutoffset add 402 ycutoffset add lineto stroke
-newpath 87 xcutoffset add 405 ycutoffset add moveto 111 xcutoffset add 402 ycutoffset add lineto stroke
+% Cutting edges of scissor blades are straight lines
+newpath 87 xscissoroffset add 405 yscissoroffset add moveto 111 xscissoroffset add 402 yscissoroffset add lineto stroke
+newpath 95 xscissoroffset add 413 yscissoroffset add moveto 99 xscissoroffset add 400 yscissoroffset add lineto stroke
 
-% newpath 91 xcutoffset add 411 ycutoffset add moveto 96 xcutoffset add 400 ycutoffset add lineto stroke
-newpath 95 xcutoffset add 413 ycutoffset add moveto 99 xcutoffset add 400 ycutoffset add lineto stroke
-% (cut here               cut here              cut here               cut here    cut    cut) show
-newpath 88 xcutoffset add 408 ycutoffset add
-moveto 100 xcutoffset add 406 ycutoffset add
-100 xcutoffset add 406 ycutoffset add
-111 xcutoffset add 402 ycutoffset add curveto stroke
+% Outside edges of scissor blades are slight curves.
+newpath 88 xscissoroffset add 408 yscissoroffset add
+moveto 100 xscissoroffset add 406 yscissoroffset add
+100 xscissoroffset add 406 yscissoroffset add
+111 xscissoroffset add 402 yscissoroffset add curveto stroke
 
-newpath 92 xcutoffset add 411 ycutoffset add
-moveto 93 xcutoffset add 407 ycutoffset add
-93 xcutoffset add 404 ycutoffset add
-96 xcutoffset add 400 ycutoffset add curveto stroke
+newpath 92 xscissoroffset add 411 yscissoroffset add
+moveto 93 xscissoroffset add 407 yscissoroffset add
+93 xscissoroffset add 404 yscissoroffset add
+96 xscissoroffset add 400 yscissoroffset add curveto stroke
 showpage
 %%EOF
