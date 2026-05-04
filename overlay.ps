@@ -1,0 +1,66 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 0 0 792 612
+%%EndComments
+
+% Define constants that need to be consistent throughout
+% Defined in landscape, so y is the narrow direction
+
+% Half-way mark for y
+/ycenter 308 def
+
+% Quartiles for x
+/xqone 198 def
+/xcenter 395 def
+/xqtwo 593 def
+
+% Offset for the scissors indicator
+/xscissoroffset 327 def
+/yscissoroffset -92 def
+
+initclip
+% [8 4] 0 setdash = dashed line for valley folds
+% [1 4] 0 setdash = dotted line for mountain folds
+% [] 0 setdash = solid line for cut
+
+% Vertical fold lines
+[8 4] 0 setdash
+newpath xqone 0 moveto xqone ycenter lineto stroke
+[1 4] 0 setdash
+newpath xqone ycenter moveto xqone 800 lineto stroke
+newpath xcenter 0 moveto xcenter 800 lineto stroke
+[8 4] 0 setdash
+newpath xqtwo 0 moveto xqtwo 800 lineto stroke
+
+% Horizontal fold line
+[1 4] 0 setdash
+newpath 0 ycenter moveto xqone ycenter lineto stroke
+newpath xqtwo ycenter moveto 999 ycenter lineto stroke
+% Solid line to indicate cut
+[] 0 setdash
+newpath xqone ycenter moveto xqtwo ycenter lineto stroke
+
+
+% -- Scissors label (text placeholder) --
+0 setgray
+% Handle of scissors is made by two pairs of concentric circles
+newpath 85 xscissoroffset add 407 yscissoroffset add 4 0 360 arc stroke
+newpath 85 xscissoroffset add 407 yscissoroffset add 3 0 360 arc stroke
+newpath 93 xscissoroffset add 415 yscissoroffset add 4 0 360 arc stroke
+newpath 93 xscissoroffset add 415 yscissoroffset add 3 0 360 arc stroke
+
+% Cutting edges of scissor blades are straight lines
+newpath 87 xscissoroffset add 405 yscissoroffset add moveto 111 xscissoroffset add 402 yscissoroffset add lineto stroke
+newpath 95 xscissoroffset add 413 yscissoroffset add moveto 99 xscissoroffset add 400 yscissoroffset add lineto stroke
+
+% Outside edges of scissor blades are slight curves.
+newpath 88 xscissoroffset add 408 yscissoroffset add
+moveto 100 xscissoroffset add 406 yscissoroffset add
+100 xscissoroffset add 406 yscissoroffset add
+111 xscissoroffset add 402 yscissoroffset add curveto stroke
+
+newpath 92 xscissoroffset add 411 yscissoroffset add
+moveto 93 xscissoroffset add 407 yscissoroffset add
+93 xscissoroffset add 404 yscissoroffset add
+96 xscissoroffset add 400 yscissoroffset add curveto stroke
+showpage
+%%EOF
