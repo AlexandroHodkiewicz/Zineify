@@ -1,3 +1,5 @@
+<img width="1440" height="1440" alt="A3A4AAF1-9BFB-44F7-842F-CB504D269E2B" src="https://github.com/user-attachments/assets/93c0f835-731e-4c5f-8a27-ad4941052081" />
+
 # Zineify
 Tools for DIY publishing.
 
