@@ -100,7 +100,15 @@ pstops "8:\
 "$TMPDIR/converted.ps" "$TMPDIR/imposed.ps"
 
 echo "Converting to PDF..."
-ps2pdf "$TMPDIR/imposed.ps" "$TMPDIR/imposed.pdf"
+# Don't want to use ps2pdf here because it applies AutoRotatePages heuristics.
+# The orientation ends up being inconsistent depending on the content (not 
+# metadata!) of the source PDF.
+# Orientation 3 = landscape (90° CW), which is required for the imposed sheet.
+gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite \
+   -dAutoRotatePages=/None \
+   -sOutputFile="$TMPDIR/imposed.pdf" \
+   -c "<</Orientation 3>> setpagedevice" \
+   -f "$TMPDIR/imposed.ps"
 
 if [[ -n "$OVERLAY" ]]; then
   if [[ ! -f "$OVERLAY" ]]; then
