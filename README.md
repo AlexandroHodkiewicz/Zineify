@@ -34,7 +34,7 @@ I only have a letter-sized printer, so I don't currently support A4. It would ju
 
 ### Getting started
 
-The scripts in this repository depend on some software packages that you'll need to install. By far the easiest way to manage them is through [Homebrew](https://brew.sh). If you haven't installed Homebrew yet, do so before using this package.
+The scripts in this repository depend on some software packages that you'll need to install. By far the easiest way to manage them is through [Homebrew](https://brew.sh). If you haven't installed Homebrew yet, do so before using Zineify.
 
 To install all required packages, run 
 
